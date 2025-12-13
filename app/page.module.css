@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  height: 60vh;
+}
+
+.form {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
