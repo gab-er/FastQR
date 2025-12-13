@@ -1,0 +1,13 @@
+.formInput {
+    background-color: hsl(0, 0, 90);
+    color: hsl(0, 20, 20);
+}
+
+.formInput::placeholder {
+    color: hsl(0, 0, 40);
+}
+
+.formInput:focus {
+    outline: 2px solid hsl(220, 90, 60);
+    outline-offset: 2px;
+}
