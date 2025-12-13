@@ -2,11 +2,15 @@
 import React from "react";
 import { useState } from "react";
 import styles from "./form.module.css";
+import useQRStore from "../stores/useQRStore";
 
 const QRForm = () => {
   const [inputValue, setInputValue] = useState("");
+  const setQrCode = useQRStore((state) => state.setQrCode);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // Error validation can be added here
 
     // API call to backend
     const res = await fetch(`/api/qr`, {
@@ -19,10 +23,10 @@ const QRForm = () => {
     });
 
     const data = await res.json();
-    console.log(data);
+    const qrCode = data.qrCode;
 
-    // Error validation can be added here
-    console.log("Form submitted with value:", inputValue);
+    // Update QR Code in the store 
+    setQrCode(qrCode);
   };
 
   return (

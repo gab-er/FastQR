@@ -1,9 +1,11 @@
-import React from 'react'
+"use client";
+
+import useQRStore from "../stores/useQRStore";
 
 const QRDisplay = () => {
-  return (
-    <div>QRDisplay</div>
-  )
-}
+  const qrCode = useQRStore((state) => state.qrCode);
 
-export default QRDisplay
+  return <img src={qrCode} alt="QR Code"></img>;
+};
+
+export default QRDisplay;
