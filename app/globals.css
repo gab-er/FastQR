@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: hsl(240, 10, 90);
+  --foreground: hsl(240, 10, 10);
+  --foreground-hover: hsl(240, 10, 30);
 }
 
 @theme inline {
@@ -14,8 +15,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: hsl(240, 10, 10);
+    --foreground: hsl(240, 10, 90);
+    --foreground-hover: hsl(240, 10, 70);
   }
 }
 
