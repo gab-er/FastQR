@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   display: flex;
+  height: 9vh
 }
 
 .navButton {
