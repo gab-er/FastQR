@@ -1,0 +1,33 @@
+.container {
+  width: 30%;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 15px;
+}
+
+.inputField {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: 6px;
+  height: 3rem;
+  padding: 0.75rem;
+  border: 1px var(--foreground) solid;
+}
+
+.inputField input {
+  width: 100%;
+}
+
+.inputField input:focus {
+  outline: none; /* Remove default outline for custom styling */
+}
+
+.submitButton button {
+  background-color: #7f56d9;
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 6px;
+}
