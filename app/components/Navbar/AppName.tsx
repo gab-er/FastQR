@@ -1,8 +1,12 @@
-import React from "react";
+import Link from "next/link";
 import styles from "./navbar.module.css";
 
 const AppName = () => {
-  return <div className={styles.appName}>FastQR</div>;
+  return (
+    <div className={styles.appName}>
+      <Link href="/">FastQR </Link>
+    </div>
+  );
 };
 
 export default AppName;
