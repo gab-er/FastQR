@@ -29,8 +29,6 @@ const LoginBox = () => {
       body: JSON.stringify(data),
     });
 
-    console.log(res);
-
     if (!res.ok) {
       const result = await res.json();
       setError("root", {
@@ -62,6 +60,7 @@ const LoginBox = () => {
           <div className={styles.inputField}>
             <input
               id="password"
+              type="password"
               placeholder="Enter your password"
               {...register("password", { required: true })}
             />
