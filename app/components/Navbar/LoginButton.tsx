@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
+import { useRouter } from "next/navigation";
 import styles from "./navbar.module.css";
 
 const LoginButton = () => {
+  const router = useRouter();
   const handleLogin = () => {
-    // Add login logic here
-    console.log("Login clicked");
+    router.push("/login");
   };
 
   return (

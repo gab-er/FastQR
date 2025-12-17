@@ -51,7 +51,7 @@ const RegisterBox = () => {
             {...register("email", { required: true })}
           />
         </div>
-        {errors.email && <p>{errors.email.message}</p>}
+        {errors.email && <p className={styles.error}>{errors.email.message}</p>}
       </div>
 
       <div>
@@ -63,7 +63,7 @@ const RegisterBox = () => {
             {...register("password", { required: true })}
           />
         </div>
-        {errors.password && <p>{errors.password.message}</p>}
+        {errors.password && <p className={styles.error}>{errors.password.message}</p>}
       </div>
 
       <div>
@@ -75,7 +75,7 @@ const RegisterBox = () => {
             {...register("confirmPassword", { required: true })}
           />
         </div>
-        {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+        {errors.confirmPassword && <p className={styles.error}>{errors.confirmPassword.message}</p>}
       </div>
 
       <div className={styles.submitButton}>
