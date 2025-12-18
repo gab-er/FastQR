@@ -4,15 +4,15 @@
   justify-content: space-between;
   align-items: center;
   display: flex;
-  height: 9vh
+  height: 9vh;
 }
 
 .navButton {
-  padding: 0.5rem 1rem;
+  padding: 8px;
   background-color: var(--foreground);
   color: var(--background);
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 10%;
   cursor: pointer;
 }
 
@@ -24,4 +24,10 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--foreground);
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }

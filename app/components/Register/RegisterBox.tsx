@@ -5,6 +5,7 @@ import { registerSchema, RegisterFormData } from "@/app/schemas/register";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 const RegisterBox = () => {
   const router = useRouter();
@@ -36,6 +37,11 @@ const RegisterBox = () => {
       });
     } else {
       // Redirect back to home page
+      const res = await signIn("credentials", {
+        email: data.email,
+        password: data.password,
+        redirect: false, // IMPORTANT
+      });
       router.push("/");
     }
   };
@@ -63,7 +69,9 @@ const RegisterBox = () => {
             {...register("password", { required: true })}
           />
         </div>
-        {errors.password && <p className={styles.error}>{errors.password.message}</p>}
+        {errors.password && (
+          <p className={styles.error}>{errors.password.message}</p>
+        )}
       </div>
 
       <div>
@@ -75,7 +83,9 @@ const RegisterBox = () => {
             {...register("confirmPassword", { required: true })}
           />
         </div>
-        {errors.confirmPassword && <p className={styles.error}>{errors.confirmPassword.message}</p>}
+        {errors.confirmPassword && (
+          <p className={styles.error}>{errors.confirmPassword.message}</p>
+        )}
       </div>
 
       <div className={styles.submitButton}>

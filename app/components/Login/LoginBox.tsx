@@ -6,6 +6,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 const LoginBox = () => {
   const router = useRouter();
@@ -20,25 +21,40 @@ const LoginBox = () => {
   });
 
   const onSubmit: SubmitHandler<loginFormData> = async (data) => {
-    const res = await fetch(`/api/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(data),
+    const res = await signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false, // IMPORTANT
     });
 
-    if (!res.ok) {
-      const result = await res.json();
+    if (res?.error) {
       setError("root", {
         type: "server",
-        message: result.error,
+        message: "Invalid email or password",
       });
     } else {
-      // Redirect back to home page
       router.push("/");
     }
+
+    // const res = await fetch(`/api/login`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   credentials: "include",
+    //   body: JSON.stringify(data),
+    // });
+
+    // if (!res.ok) {
+    //   const result = await res.json();
+    //   setError("root", {
+    //     type: "server",
+    //     message: result.error,
+    //   });
+    // } else {
+    //   // Redirect back to home page
+    //   router.push("/");
+    // }
   };
 
   return (
